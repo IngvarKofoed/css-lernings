@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const colors = [
+                '#000000',
+                '#9D9D9D',
+                '#FFFFFF',
+                '#BE2633',
+                '#E06F8B',
+                '#493C2B',
+                '#A46422',
+                '#EB8931',
+                '#F7E26B',
+                '#2F484E',
+                '#44891A',
+                '#A3CE27',
+                '#1B2632',
+                '#005784',
+                '#31A2F2',
+                '#B2DCEF',
+            ];
+
+            function initializeColors() {
+                document
+                    .getElementById("collapsibleToggle")
+                    .style
+                    .backgroundColor = colors[0];
+
+                var cells = [...document.getElementsByClassName('collapsibleItem')];
+                cells.forEach((cell, i) => {
+                    cell.style.backgroundColor = colors[i];
+                })
+            }
+
+            function onColorCellClicked(index) {
+                document
+                    .getElementById("collapsibleToggle")
+                    .style
+                    .backgroundColor = colors[index];
+
+                const input = document.getElementById("collapsibleInput");
+                input.checked = !input.checked;
+            }
+        </script>
+        <style>
+            body {
+                background-color: bisque;
+            }
+
+            .collapsibleInput {
+                display: none;
+            }
+
+            .collapsibleToggle {
+                width: 32px;
+                height: 32px;
+                display: block;
+                background-color: rgb(104, 104, 249);
+            }
+
+            .collapsible {
+                width: 128px;
+                height: 0px;
+                background-color: rgb(249, 119, 119);
+                overflow: hidden;
+                position: absolute;
+                transition: all .25s ease-in-out;
+
+                display: grid;
+                grid-template-columns: 32px 32px 32px 32px;
+            }
+
+            .collapsibleItem {
+                width: 32px;
+                height: 32px;
+            }
+
+            .collapsibleInput:checked + .collapsibleToggle + .collapsible {
+                height: 128px;
+            }
+        </style>
+    </head>
+    <body onload="initializeColors()">
+        <input id="collapsibleInput" class="collapsibleInput" type="checkbox">
+        <label for="collapsibleInput" id="collapsibleToggle" class="collapsibleToggle"></label>
+        <div class="collapsible">
+            <div onclick="onColorCellClicked(0)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(1)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(2)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(3)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(4)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(5)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(6)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(7)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(8)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(9)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(10)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(11)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(12)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(13)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(14)" class="collapsibleItem"></div>
+            <div onclick="onColorCellClicked(15)" class="collapsibleItem"></div>
+        </div>
+        <div>
+            Codesome, Codesome, Codesome.
+        </div>
+    </body>
+</html>
