@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .inline {
+        display: inline;
+        background-color: lightgreen;
+        color: black;
+        border: 1px solid black;
+        height: 100px;
+        width: 100px;
+      }
+      .not-inline {
+        display: block;
+        background-color: lightcoral;
+        color: black;
+        border: 1px solid black;
+      }
+      .already-inline {
+        background-color: lightskyblue;
+        color: black;
+        border: 1px solid black;
+      }
+
+      .block {
+        display: block;
+        background-color: lightgreen;
+        color: black;
+        border: 1px solid black;
+        height: 50px;
+        width: 50px;
+      }
+      .not-block {
+        display: inline;
+        background-color: lightcoral;
+        color: black;
+        border: 1px solid black;
+      }
+      .already-block {
+        background-color: lightskyblue;
+        color: block;
+        border: 1px solid black;
+        height: 10px;
+        width: 10px;
+      }
+
+      .contents {
+        display: contents;
+        background-color: lightgreen;
+        color: black;
+        border: 1px solid black;
+        height: 100px;
+        width: 100px;
+      }
+
+      .seperator {
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        margin-top: 25px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>display: inline</h1>
+
+    <h3>Test 1 - Inlines stays on same line, width and height does not apply, horizontal spacing added.</h3>
+    <div class="inline">Inline</div>
+    <div class="inline">Inline</div>
+    <div class="inline">Inline</div>
+    <span class="already-inline">Already inline</span>
+
+    <div class="seperator"></div>
+    
+    <h3>Test 2 - Inline children stays within the parents box.</h3>
+    <div class="inline">
+      Inline
+      <div class="inline">Inline child</div>
+      <div class="inline">Inline child</div>
+      <div class="inline">Inline child</div>
+      <span class="already-inline">Already inline</span>
+    </div>
+
+    <div class="seperator"></div>
+
+    <h3>Test 3 - Not inline childing breaks the parents box into two (note the already inline element being below). Border is shared at bottom not top.</h3>
+    <div class="inline">
+      Inline
+      <div class="inline">Inline child</div>
+      <div class="not-inline">Not inline child</div>
+      <span class="already-inline">Already inline</span>
+    </div>
+
+
+    <h1>display: block</h1>
+
+    <h3>Test 1 - Block always starts below, width and height applies, no vertical spacing added.</h3>
+    <div class="block">Block</div>
+    <div class="block">Block</div>
+    <div class="block">Block</div>
+    <span class="already-block">Already block</span>
+
+    <div class="seperator"></div>
+
+    <h3>Test 2 - Block always starts below, also after inline elements. Border is shared at top not bottom.</h3>
+    <div class="block">Block</div>
+    <div class="not-block">Not block</div>
+    <div class="block">Block</div>
+    <span class="already-block">Already block</span>
+
+    <div class="seperator"></div>
+
+    <h3>Test 3 - Block breaks texts (and adds top/bottom border to every new break) and overflow out of the parent is shown.</h3>
+    <div class="block">
+      Block parent
+      <div class="block">Block child</div>
+      <div class="not-block">Not block child</div>
+      <div class="block">Block child</div>
+      <span class="already-block">Already block child</span>
+    </div>
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <h1>display: contents</h1>
+  
+    <h3>Test 1 - Inlines stays on same line, width and height does not apply, horizontal spacing added.</h3>
+    <div class="contents">Inline</div>
+    <div class="contents">Inline</div>
+    <div class="contents">Inline</div>
+
+  </body>
+</html>
